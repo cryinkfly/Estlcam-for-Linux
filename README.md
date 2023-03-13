@@ -1,6 +1,6 @@
 # Estlcam-for-Linux
 
-<a href="https://www.estlcam.de/">Estlcam</a> is a software for creating G-codes for a quick and easy start with the CNC milling machine and can also be used as control software if you use the associated Estlcam controller. This CAM software is used for work preparation and can be used for CNC machines with up to 3 axes. This software can even be used to output data sets for our large CNC systems of the T-Rex series.
+<a href="https://www.estlcam.de/">Estlcam</a> is a software for creating G-codes for a quick and easy start with the CNC milling machine and can also be used as control software if you use the associated Estlcam controller. This CAM software is used for work preparation and can be used for CNC machines with up to 3 axes.
 
 ---
 
