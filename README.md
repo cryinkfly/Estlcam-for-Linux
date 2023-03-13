@@ -11,6 +11,17 @@ Estlcam is a software for creating G-codes for a quick and easy start with the C
  </br></br>
 </div>
 
+---
+
+<div id="fusion360-installation" align="center">
+<h2>⚙️ Getting Started</h3>
+🔹 Check, if your <a href="https://github.com/cryinkfly/Autodesk-Fusion-360-for-Linux/tree/main/files/extras/network/etc">network settings</a> are correctly configured!
+</br>
+🔹 Open a terminal and run this command:
+</br></br>
+
+    mkdir -p "$HOME/.estclam/bin" && cd "$HOME/.estclam/bin" && wget -N https://raw.githubusercontent.com/cryinkfly/Estlcam-for-Linux/main/files/builds/stable-branch/bin/install.sh && chmod +x install.sh && ./install.sh
+
 
 
 
