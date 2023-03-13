@@ -6,7 +6,7 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    15:50/13.03.2023                                                                                           #
+# Time/Date:    16:10/13.03.2023                                                                                           #
 # Version:      0.0.1                                                                                                      #
 # Requires:     dialog, wget, lsb-release, coreutils                                                                       #
 ############################################################################################################################
@@ -229,12 +229,14 @@ function OS_ARCHLINUX {
   if ARCHLINUX_VERIFY_MULTILIB ; then
     echo "multilib found. Continuing..."
     pkexec sudo pacman -Sy --needed wine wine-mono wine_gecko winetricks p7zip curl cabextract samba ppp
+    sudo usermod -a -G dialout $USER 
     SP_ESTCLAM_INSTALL
   else
     echo "Enabling multilib..."
     echo "[multilib]" | sudo tee -a /etc/pacman.conf
     echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
     pkexec sudo pacman -Sy --needed wine wine-mono wine_gecko winetricks p7zip curl cabextract samba ppp
+    sudo usermod -a -G dialout $USER
     SP_ESTCLAM_INSTALL
   fi
 }
@@ -270,6 +272,7 @@ function DEBIAN_BASED_1 {
   pkexec sudo apt-get --allow-releaseinfo-change update
   # Added i386 support for wine!
   sudo dpkg --add-architecture i386
+  sudo usermod -a -G dialout $USER
 }
 
 function DEBIAN_BASED_2 {
@@ -368,6 +371,7 @@ function OS_FEDORA {
 function FEDORA_BASED_1 {
   pkexec sudo dnf update
   sudo dnf upgrade
+  sudo usermod -a -G dialout $USER
   sudo dnf install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
 }
 
@@ -406,22 +410,26 @@ function OS_OPENSUSE {
 
 function OS_OPENSUSE_154 {
   pkexec su -c 'zypper up && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.4/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.4/ wine && zypper install p7zip-full curl wget wine cabextract'
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
 # Has not been published yet!
 function OS_OPENSUSE_155 {
   pkexec su -c 'zypper up && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.5/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Leap_15.5/ wine && zypper install p7zip-full curl wget wine cabextract'
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
 function OS_OPENSUSE_TW {
   pkexec su -c 'zypper dup && zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && zypper install p7zip-full curl wget wine cabextract'
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
 function OS_OPENSUSE_MICROOS {
   sudo zypper dup && sudo zypper rr https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && sudo zypper ar -cfp 95 https://download.opensuse.org/repositories/Emulators:/Wine/openSUSE_Tumbleweed/ wine && sudo zypper install p7zip-full curl wget wine cabextract
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
@@ -445,6 +453,7 @@ function OS_REDHAT_LINUX_8 {
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
   sudo dnf upgrade
   sudo dnf install wine
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
@@ -453,6 +462,7 @@ function OS_REDHAT_LINUX_9 {
   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
   sudo dnf upgrade
   sudo dnf install wine
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
@@ -460,6 +470,7 @@ function OS_REDHAT_LINUX_9 {
 
 function OS_SOLUS_LINUX {
   pkexec sudo eopkg install -y wine winetricks p7zip curl cabextract samba ppp
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
@@ -467,6 +478,7 @@ function OS_SOLUS_LINUX {
 
 function OS_VOID_LINUX {
   pkexec sudo xbps-install -Sy wine wine-mono wine-gecko winetricks p7zip curl cabextract samba ppp
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
@@ -474,6 +486,7 @@ function OS_VOID_LINUX {
 
 function OS_GENTOO_LINUX {
   pkexec sudo emerge -nav virtual/wine app-emulation/winetricks app-emulation/wine-mono app-emulation/wine-gecko app-arch/p7zip app-arch/cabextract net-misc/curl net-fs/samba net-dialup/ppp
+  sudo usermod -a -G dialout $USER
   SP_ESTCLAM_INSTALL
 }
 
