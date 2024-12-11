@@ -6,8 +6,8 @@
 # Author:       Steve Zabka                                                                                                #
 # Author URI:   https://cryinkfly.com                                                                                      #
 # License:      MIT                                                                                                        #
-# Time/Date:    16:10/13.03.2023                                                                                           #
-# Version:      0.0.1                                                                                                      #
+# Time/Date:    14:10/11.12.2024                                                                                           #
+# Version:      0.0.2                                                                                                      #
 # Requires:     dialog, wget, lsb-release, coreutils                                                                       #
 ############################################################################################################################
 
@@ -156,7 +156,7 @@ function SP_SELECT_ESTCLAM {
 
 # Download SOLIDWORKS:
 function SP_SOLIDWORKS_LOAD {
-  wget --progress=dot "https://www.estlcam.de/downloads/Estlcam_64_11244.exe" -O Estclam.exe 2>&1 |\
+  wget --progress=dot "https://www.estlcam.de/downloads/Estlcam_64_12117.exe" -O Estclam.exe 2>&1 |\
   grep "%" |\
   sed -u -e "s,\.,,g" | awk '{print $2}' | sed -u -e "s,\%,,g"  | dialog --gauge "Download Estclam Version (11244) ..." 10 100
   sleep 1
