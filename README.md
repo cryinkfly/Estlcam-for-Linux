@@ -16,15 +16,34 @@
 ---
 
 <div id="fusion360-installation" align="center">
-<h2>⚙️ Getting Started</h3>
-🔹 Check, if your <a href="https://github.com/cryinkfly/Autodesk-Fusion-360-for-Linux/tree/main/files/extras/network/etc">network settings</a> are correctly configured!
-</br>
-🔹 Open a terminal and run this command:
-</br></br>
+  <h2>⚙️ Getting Started</h2>
+  🔹 Check if your <a href="https://github.com/cryinkfly/Autodesk-Fusion-360-for-Linux/tree/main/files/extras/network/etc">network settings</a> are correctly configured!<br>
+  🔹 Follow these steps to set up Wine and Winetricks before continuing with the installation:
 
-    mkdir -p "$HOME/.estclam/bin" && cd "$HOME/.estclam/bin" && wget -N https://raw.githubusercontent.com/cryinkfly/Estlcam-for-Linux/main/files/builds/stable-branch/bin/install.sh && chmod +x install.sh && ./install.sh
+  <h3>Step 1: Install Wine and Winetricks</h3>
+  For <strong>Linux Mint 22.x</strong>, you can install Wine and Winetricks by running the following commands in your terminal:
+  <pre>
+    sudo dpkg --add-architecture i386
+    sudo mkdir -pm755 /etc/apt/keyrings
+    wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key -
+    sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
+    sudo apt update
+    sudo apt install --install-recommends winehq-staging winetricks</pre>
+  
+  For other systems, please refer to the official Wine installation guide at: <a href="https://wiki.winehq.org/Download">WineHQ Download</a>.
 
+  <h3>Step 2: Configure Wine and Install Estlcam</h3>
+  Once Wine and Winetricks are installed, proceed with the following commands:
 
+  <pre>
+    WINEPREFIX="$HOME/wineprefixes/estclam" winetricks -q sandbox
+    cd "$HOME/wineprefixes/estclam/drive_c/users/$USER/Downloads"
+    wget "https://www.estlcam.de/downloads/Estlcam_64_12126.exe"
+    WINEPREFIX="$HOME/wineprefixes/estclam" wine Estlcam_64_12126.exe
+    exit</pre>
+  
+  <p><strong>Important:</strong> Make sure to download the latest version of Estlcam. The link to the latest version can be found on the <a href="https://www.estlcam.de">official Estlcam website.</a></p>
+</div>
 
 
 
