@@ -43,6 +43,9 @@
     exit</pre>
   
   <p><strong>Important:</strong> Make sure to download the latest version of Estlcam. The link to the latest version can be found on the <a href="https://www.estlcam.de">official Estlcam website.</a></p>
+
+  <h3>Step 3: Launch Estlcam</h3>
+  After installation, you can easily find and launch Estlcam through the Wine menu in Linux Mint. Simply navigate to the Wine category in your applications menu, and select Estlcam to start the program.
 </div>
 
 
