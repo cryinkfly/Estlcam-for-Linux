@@ -44,7 +44,16 @@
   
   <p><strong>Important:</strong> Make sure to download the latest version of Estlcam. The link to the latest version can be found on the <a href="https://www.estlcam.de">official Estlcam website.</a></p>
 
-  <h3>Step 3: Launch Estlcam</h3>
+  <h3>Step 3: Add User to Dialout Group (for device access)</h3>
+  To allow access to devices like serial ports (for CNC machines or 3D printers), you need to add your user to the **dialout** group. This grants the necessary permissions to interact with these devices.
+
+  Run the following command to add your user to the **dialout** group:
+  <pre>
+    sudo usermod -a -G dialout $USER</pre>
+
+  <p>After running the command, log out and log back in (or restart your system) for the changes to take effect.</p>
+
+  <h3>Step 4: Launch Estlcam</h3>
   After installation, you can easily find and launch Estlcam through the Wine menu in Linux Mint. Simply navigate to the Wine category in your applications menu, and select Estlcam to start the program.
 </div>
 
